@@ -7,7 +7,7 @@ public class swappable : MonoBehaviour {
     }
 
     public float GetSwapResistance () {
-        return 1.0;
+        return 1.0f;
     }
 
     public void DisengageSwap () {
