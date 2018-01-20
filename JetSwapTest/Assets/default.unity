@@ -1127,13 +1127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48bdfbf348f9949d2967189fbda4a436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xHorizontalAxisName: LSLeftRight
-  zHorizontalAxisName: LSUpDown
   movementSpeed: 5
   rotationSpeed: 220
-  xHorizontalRotationAxisName: RSLeftRight
-  yVerticalRotationAxisName: RSUpDown
-  joystick: 0
+  joystick: 1
 --- !u!23 &2063643747
 MeshRenderer:
   m_ObjectHideFlags: 0
