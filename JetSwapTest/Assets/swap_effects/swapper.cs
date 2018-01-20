@@ -10,6 +10,7 @@ public class swapper : swappable {
     int shootableMask;
     swappable target;
     float swap_speed = 0.01f;   
+    public RectTransform fill;
 
     void Start() {
         shootableMask = LayerMask.GetMask("Obstacle") | LayerMask.GetMask("Swappable");
@@ -19,6 +20,9 @@ public class swapper : swappable {
     {
         Debug.Log("Shoot");
         Debug.Log(Physics.Raycast(origin));
+        if (Physics.Raycast(origin, out shootHit)) {
+            Debug.Log(shootHit.transform.gameObject.name);
+        }
         if (!Physics.Raycast(origin, out shootHit, Mathf.Infinity, shootableMask))
         {
             swap_completion = 0f;
@@ -26,6 +30,7 @@ public class swapper : swappable {
             {
                 target.DisengageSwap();
             }
+            fill.localScale = new Vector3(swap_completion,swap_completion);
             return;
         }
         Debug.Log("Hit");
@@ -39,6 +44,7 @@ public class swapper : swappable {
             {
                 target.DisengageSwap();
             }
+            fill.localScale = new Vector3(swap_completion,swap_completion);
             return;
         }
         Debug.Log("Good");
@@ -61,6 +67,7 @@ public class swapper : swappable {
             o.SetPositionAndRotation(t_pos, o.rotation);
             target = null;
         }
+        fill.localScale = new Vector3(swap_completion,swap_completion);
     }
 
     void Update() {
