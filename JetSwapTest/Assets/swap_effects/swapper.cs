@@ -9,8 +9,9 @@ public class swapper : swappable {
     RaycastHit shootHit;
     int shootableMask;
     swappable target;
-    float swap_speed = 0.01f;   
+    float swap_speed = 0.01f;
     public RectTransform fill;
+    public Camera cam;
 
     void Start() {
         shootableMask = LayerMask.GetMask("Obstacle") | LayerMask.GetMask("Swappable");
@@ -48,9 +49,10 @@ public class swapper : swappable {
             return;
         }
         Debug.Log("Good");
-        if(target == null)
+        swappable new_target = shootHit.transform.GetComponent<swappable>();
+        if(target != new_target)
         {
-            target = shootHit.transform.GetComponent<swappable>();
+            target = new_target;
             swap_completion = 0f;
         }
         swap_completion += swap_speed / target.GetSwapResistance();
@@ -72,7 +74,7 @@ public class swapper : swappable {
 
     void Update() {
         Debug.Log("NITICE ME!");
-            Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f,0.5f));
+            Ray ray = cam.ViewportPointToRay(new Vector3(0.5f,0.5f));
             if (Physics.Raycast(ray)) {
                 shoot(ray);
             }
