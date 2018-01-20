@@ -19,7 +19,7 @@ public class swapper : swappable {
     {
         Debug.Log("Shoot");
         Debug.Log(Physics.Raycast(origin));
-        if (!Physics.Raycast(origin, out shootHit, shootableMask))
+        if (!Physics.Raycast(origin, out shootHit, Mathf.Infinity, shootableMask))
         {
             swap_completion = 0f;
             if (target)
@@ -65,7 +65,7 @@ public class swapper : swappable {
 
     void Update() {
         Debug.Log("NITICE ME!");
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f,0.5f));
             if (Physics.Raycast(ray)) {
                 shoot(ray);
             }
