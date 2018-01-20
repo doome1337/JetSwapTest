@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour {
     [Header("Joystick Number")]
     [SerializeField]
     int joystick;
+    public Ray r;
 
     private void Movement() {
         float xThrow = Input.GetAxis(xHorizontalAxisName);
@@ -24,6 +25,8 @@ public class PlayerMovement : MonoBehaviour {
         transform.position = new Vector3(xPos,
                                         transform.position.y,
                                          zPos);
+        r = new Ray(transform.position, transform.forward);
+        GetComponent<swapper>().shoot(r);
     }
 
 	// Use this for initialization

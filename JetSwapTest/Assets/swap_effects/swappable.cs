@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class swappable : MonoBehaviour {
     public float swap_resistance = 0.0f;
-    private float max_swap_completion = 0.0f;
-    private int swapless_time = 0;
+    public float max_swap_completion = 0.0f;
+    public int swapless_time = 0;
 
     public void UpdateSwap (swapper other, float swap_completion) {
         if (swap_completion >= max_swap_completion) {

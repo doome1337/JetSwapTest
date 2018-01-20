@@ -17,7 +17,9 @@ public class swapper : swappable {
 
     public void shoot(Ray origin)
     {
-        if (!Physics.Raycast(origin, out shootHit, Mathf.Infinity, shootableMask))
+        Debug.Log("Shoot");
+        Debug.Log(Physics.Raycast(origin));
+        if (!Physics.Raycast(origin, out shootHit, shootableMask))
         {
             swap_completion = 0f;
             if (target)
@@ -26,7 +28,11 @@ public class swapper : swappable {
             }
             return;
         }
-        if (shootHit.transform.gameObject.layer != LayerMask.GetMask("Swappable"))
+        Debug.Log("Hit");
+        Debug.Log(shootHit.transform.gameObject.name);
+        Debug.Log(shootHit.transform.gameObject.layer);
+        Debug.Log(LayerMask.GetMask("Swappable"));
+        if ((1 << shootHit.transform.gameObject.layer) != LayerMask.GetMask("Swappable"))
         {
             swap_completion = 0f;
             if (target)
@@ -35,6 +41,7 @@ public class swapper : swappable {
             }
             return;
         }
+        Debug.Log("Good");
         if(target == null)
         {
             target = shootHit.transform.GetComponent<swappable>();
@@ -54,5 +61,13 @@ public class swapper : swappable {
             o.SetPositionAndRotation(t_pos, o.rotation);
             target = null;
         }
+    }
+
+    void Update() {
+        Debug.Log("NITICE ME!");
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray)) {
+                shoot(ray);
+            }
     }
 }
