@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class swapper : swappable {
 
-    float swap_completion;
+    public float swap_completion;
     Ray shootRay = new Ray();
     RaycastHit shootHit;
     int shootableMask;

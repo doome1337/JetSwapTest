@@ -1687,9 +1687,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48bdfbf348f9949d2967189fbda4a436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xHorizontalAxisName: 
-  zHorizontalAxisName: 
-  movementSpeed: 0
+  xHorizontalAxisName: LSLeftRight
+  zHorizontalAxisName: LSUpDown
+  movementSpeed: 5
+  rotationSpeed: 220
+  xHorizontalRotationAxisName: RSLeftRight
+  yVerticalRotationAxisName: RSUpDown
   joystick: 1
 --- !u!4 &1432246215 stripped
 Transform:
@@ -1706,9 +1709,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38816f12fb768460e9d82276b148bded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swap_resistance: 0
+  swap_resistance: 2
   max_swap_completion: 0
   swapless_time: 0
+  swap_completion: 0
 --- !u!1 &1497940377
 GameObject:
   m_ObjectHideFlags: 0
@@ -1969,12 +1973,12 @@ Prefab:
     - target: {fileID: 23228671515604582, guid: 5e9e851c0e142814dac026a256ba2ac0,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 23927528602462326, guid: 5e9e851c0e142814dac026a256ba2ac0,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_NormalizedViewPortRect.width
@@ -1983,6 +1987,10 @@ Prefab:
     - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_NormalizedViewPortRect.x
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
@@ -2293,6 +2301,24 @@ MeshCollider:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
   m_PrefabInternal: {fileID: 1563468793}
+--- !u!114 &1864312659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1864312658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48bdfbf348f9949d2967189fbda4a436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xHorizontalAxisName: LSLeftRight2
+  zHorizontalAxisName: LSUpDown2
+  movementSpeed: 5
+  rotationSpeed: 220
+  xHorizontalRotationAxisName: RSLeftRight2
+  yVerticalRotationAxisName: RSUpDown2
+  joystick: 2
 --- !u!114 &1864312664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2304,9 +2330,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38816f12fb768460e9d82276b148bded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swap_resistance: 0
+  swap_resistance: 2
   max_swap_completion: 0
   swapless_time: 0
+  swap_completion: 0
 --- !u!1 &1916758503 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100182, guid: 3f6835d9bb1b6b6439501f7b05376bf3, type: 3}
