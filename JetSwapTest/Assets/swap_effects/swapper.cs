@@ -9,7 +9,7 @@ public class swapper : swappable {
     RaycastHit shootHit;
     int shootableMask;
     swappable target;
-    float swap_speed = 0.01f;
+    float swap_speed = 0.01f;   
 
     void Start() {
         shootableMask = LayerMask.GetMask("Obstacle") | LayerMask.GetMask("Swappable");
